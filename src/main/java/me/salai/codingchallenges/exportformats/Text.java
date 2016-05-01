@@ -19,7 +19,7 @@ public class Text implements Exporter {
      */
     public void export(List<Movie> movies) {
         String userDirPath = System.getProperty("user.home");
-        String fileName = "movies_" + System.currentTimeMillis();
+        String fileName = "movies_" + System.currentTimeMillis() +".txt";
         File output = new File(userDirPath + "/" + fileName);
         try {
             output.createNewFile();
