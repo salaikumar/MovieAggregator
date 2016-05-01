@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  * Client Program
- * -- FixMe --> should be moved as a separate Program. In order to rush testing, am adding it over here
+ * -- FixMe --> should be moved as a separate Program.
  */
 public class ClientProgram {
 
