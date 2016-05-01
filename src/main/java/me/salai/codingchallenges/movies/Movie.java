@@ -8,7 +8,7 @@ import java.sql.Time;
  */
 public class Movie {
     private String movieName;
-    private Time duration;
+    private String duration;
     private String language;
     private String leadActor;
     private String genre;
@@ -19,7 +19,7 @@ public class Movie {
     }
 
     // All Properties Constructor
-    public Movie(String movieName, Time duration, String language, String leadActor, String genre ){
+    public Movie(String movieName, String duration, String language, String leadActor, String genre ){
         this.movieName  = movieName;
         this.duration   = duration;
         this.language   = language;
@@ -35,11 +35,11 @@ public class Movie {
         this.movieName = movieName;
     }
 
-    public Time getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Time duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
