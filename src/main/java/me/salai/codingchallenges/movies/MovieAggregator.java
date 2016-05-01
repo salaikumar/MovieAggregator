@@ -3,6 +3,7 @@ package me.salai.codingchallenges.movies;
 import me.salai.codingchallenges.movies.Movie;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -11,16 +12,17 @@ import java.util.Set;
  * Collects the movie information from user and export it to the format as user expects
  */
 public class MovieAggregator {
-    Set<Movie> movies;
+    List<Movie> movies;
 
+    public MovieAggregator(){
+        movies = new ArrayList<Movie>();
+    }
     public boolean addMovie(Movie movie){
         return movies.add(movie);
     }
 
     public List<Movie> getAllMovies(){
-        List<Movie> moviesList = new ArrayList<Movie>();
-        movies.addAll(movies);
-        return moviesList;
+        return movies;
     }
 
     // --FixME Add more functions as requirement grows here

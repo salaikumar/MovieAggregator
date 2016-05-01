@@ -3,11 +3,8 @@ package me.salai.codingchallenges.exportformats;
 import me.salai.codingchallenges.movies.Movie;
 import org.junit.Test;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Text Exporter to PDF

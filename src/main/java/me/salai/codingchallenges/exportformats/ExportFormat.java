@@ -2,6 +2,7 @@ package me.salai.codingchallenges.exportformats;
 
 import me.salai.codingchallenges.exportformats.Exporter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,6 +11,10 @@ import java.util.List;
  */
 public class ExportFormat {
     List<Exporter> exportFormats;
+
+    public ExportFormat(){
+        exportFormats = new ArrayList<Exporter>();
+    }
     // Add a new Exported. -- In order to know the list of types in which the data can be exported
     public void addExportFormat(Exporter exporter){
         exportFormats.add(exporter);
@@ -24,7 +29,7 @@ public class ExportFormat {
     public Exporter getExporter(String className){
         Exporter exporter = null;
         try {
-            exporter = (Exporter) Class.forName(className).newInstance();
+            exporter = (Exporter) Class.forName("me.salai.codingchallenges.exportformats"+"."+className).newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

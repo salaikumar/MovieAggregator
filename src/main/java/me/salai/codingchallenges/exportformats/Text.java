@@ -38,6 +38,8 @@ public class Text implements Exporter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println("File Location:" + output.getAbsolutePath());
     }
 
     public String getExporterName() {
