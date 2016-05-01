@@ -3,12 +3,13 @@ package me.salai.codingchallenges.exportformats;
 /**
  * Exports the list of movies to a text file
  */
-public class TextExporter implements Exporter {
+public class Text implements Exporter {
+
     public void export() {
 
     }
 
-    public void getExporterName() {
-
+    public String getExporterName() {
+        return "Text";
     }
 }

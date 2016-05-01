@@ -6,5 +6,5 @@ package me.salai.codingchallenges.exportformats;
  */
 public interface Exporter {
     public void export();
-    public void getExporterName();
+    public String getExporterName();
 }
