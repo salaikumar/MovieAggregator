@@ -1,6 +1,5 @@
-package me.salai.codingchallenges;
+package me.salai.codingchallenges.movies;
 
-import java.sql.Struct;
 import java.sql.Time;
 
 /**

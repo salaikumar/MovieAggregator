@@ -1,4 +1,4 @@
-package me.salai.codingchallenges;
+package me.salai.codingchallenges.exportformats;
 
 /**
  * Interface Exporter
@@ -6,5 +6,5 @@ package me.salai.codingchallenges;
  */
 public interface Exporter {
     public void export();
-    public void getClassName();
+    public void getExporterName();
 }

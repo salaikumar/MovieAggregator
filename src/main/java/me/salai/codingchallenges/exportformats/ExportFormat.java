@@ -1,9 +1,12 @@
-package me.salai.codingchallenges;
+package me.salai.codingchallenges.exportformats;
+
+import me.salai.codingchallenges.exportformats.Exporter;
 
 import java.util.List;
 
 /**
- * Created by salaikumar on 1/5/16.
+ * Export Formats
+ * All types of Export Formats are present here for use.
  */
 public class ExportFormat {
     List<Exporter> exportFormats;
@@ -21,5 +24,6 @@ public class ExportFormat {
     public Exporter getExporter(String className){
         return null; // -- FixME
     }
+
 
 }

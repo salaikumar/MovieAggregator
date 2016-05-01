@@ -1,4 +1,6 @@
-package me.salai.codingchallenges;
+package me.salai.codingchallenges.movies;
+
+import me.salai.codingchallenges.movies.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
