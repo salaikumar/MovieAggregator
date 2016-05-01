@@ -1,6 +1,5 @@
 # MovieAggregator
-Command line Application accepts movie details and export it to various formats such as PDF, Textfile.
-*Note:The Export format is plugable.*
+Console app that accepts movie details and export it to various formats such as PDF, Textfile.
 ------
 ## How to use
 -------
