@@ -11,19 +11,13 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Exports the movies to PDF
+ * Pdf Class
+ * Exports the given Movies to a Pdf
  */
-public class PDF implements Exporter {
+public class Pdf implements Exporter {
 
-    // Export as PDF
+
     public void export(List<Movie> movies) {
-        // Prepare the movie details as as a single string
-//        StringBuilder str = new StringBuilder();
-//        for (Movie movie : movies){
-//            str.append(movie.toString());
-//            str.append(System.lineSeparator());
-//        }
-//        String movieDetails = new String(str);
         String userDirPath = System.getProperty("user.home");
         String fileName = userDirPath + "/"+ "movies_" + System.currentTimeMillis() +".pdf";
         PDDocument  doc= new PDDocument();
@@ -51,6 +45,6 @@ public class PDF implements Exporter {
     }
 
     public String getExporterName() {
-        return "PDF";
+        return "Pdf";
     }
 }

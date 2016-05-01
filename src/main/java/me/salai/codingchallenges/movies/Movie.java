@@ -13,9 +13,7 @@ public class Movie {
     private String leadActor;
     private String genre;
 
-    // Default Constructor
     public Movie(){
-
     }
 
     // All Properties Constructor

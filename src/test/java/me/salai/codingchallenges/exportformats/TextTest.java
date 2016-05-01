@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Text Exporter to PDF
+ * Text Exporter to Pdf
  */
 public class TextTest {
 

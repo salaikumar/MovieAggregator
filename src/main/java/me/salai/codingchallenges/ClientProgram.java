@@ -1,9 +1,8 @@
 package me.salai.codingchallenges;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import me.salai.codingchallenges.exportformats.ExportFormat;
 import me.salai.codingchallenges.exportformats.Exporter;
-import me.salai.codingchallenges.exportformats.PDF;
+import me.salai.codingchallenges.exportformats.Pdf;
 import me.salai.codingchallenges.exportformats.Text;
 import me.salai.codingchallenges.movies.Movie;
 import me.salai.codingchallenges.movies.MovieAggregator;
@@ -24,7 +23,7 @@ public class ClientProgram {
 
         // Add the formats u want the system to support.
         exportFormat.addExportFormat(new Text()); // => Export to text.
-        exportFormat.addExportFormat(new PDF()); // => Export to PDF
+        exportFormat.addExportFormat(new Pdf()); // => Export to Pdf
 
         // Print Statements for User input
         System.out.println("Please Provide Movie details at each per line. Type exit at End");
@@ -42,9 +41,13 @@ public class ClientProgram {
         List<Exporter> exporters = exportFormat.getExportFormats();
         for (Exporter exp : exporters)
             System.out.println(exp.getExporterName());
-        String expClass = scanner.nextLine();
 
-        //  The Power of Reflection
+        // Make it as a proper class name
+        String inputClass = scanner.nextLine().toLowerCase();
+        String firstLetter = String.valueOf(inputClass.charAt(0)).toUpperCase();
+        String expClass = firstLetter + inputClass.substring(1,inputClass.length());
+
+        //  Export it to the user desired format
         Exporter chosenExporter = exportFormat.getExporter(expClass);
         chosenExporter.export(movieAggregator.getAllMovies());
     }
