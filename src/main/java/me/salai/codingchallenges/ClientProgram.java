@@ -3,6 +3,7 @@ package me.salai.codingchallenges;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import me.salai.codingchallenges.exportformats.ExportFormat;
 import me.salai.codingchallenges.exportformats.Exporter;
+import me.salai.codingchallenges.exportformats.PDF;
 import me.salai.codingchallenges.exportformats.Text;
 import me.salai.codingchallenges.movies.Movie;
 import me.salai.codingchallenges.movies.MovieAggregator;
@@ -23,6 +24,7 @@ public class ClientProgram {
 
         // Add the formats u want the system to support.
         exportFormat.addExportFormat(new Text()); // => Export to text.
+        exportFormat.addExportFormat(new PDF()); // => Export to PDF
 
         // Print Statements for User input
         System.out.println("Please Provide Movie details at each per line. Type exit at End");
