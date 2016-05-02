@@ -1,6 +1,7 @@
 package me.salai.codingchallenges.exportformats;
 
 import me.salai.codingchallenges.movies.Movie;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import javax.swing.plaf.basic.BasicButtonUI;
@@ -33,6 +34,17 @@ public class TextTest {
         Exporter exporter = new Text();
         String file = exporter.export(movies);
         assertThat(file.isEmpty(),is(false));
+        try {
+            assertThat(FileUtils.readFileToString(new File(file)).contains(movie1.toString()),is(true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        Movie movie6 = new Movie("American Gangster", "02:13:30", "English", "Brad Bit", "Action");
+        try {
+            assertThat(FileUtils.readFileToString(new File(file)).contains(movie6.toString()),is(false));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
