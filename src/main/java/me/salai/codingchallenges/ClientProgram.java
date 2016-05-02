@@ -6,9 +6,12 @@ import me.salai.codingchallenges.exportformats.Pdf;
 import me.salai.codingchallenges.exportformats.Text;
 import me.salai.codingchallenges.movies.Movie;
 import me.salai.codingchallenges.movies.MovieAggregator;
+import org.reflections.Reflections;
+import org.reflections.util.ClasspathHelper;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Client Program
@@ -20,9 +23,18 @@ public class ClientProgram {
         MovieAggregator movieAggregator = new MovieAggregator();
         ExportFormat exportFormat = new ExportFormat();
 
-        // Add the formats u want the system to support.
-        exportFormat.addExportFormat(new Text()); // => Export to text.
-        exportFormat.addExportFormat(new Pdf()); // => Export to Pdf
+        // Using Reflections library to get all classes implementing Exporter
+        Reflections reflections = new Reflections(ClasspathHelper.forPackage("me.salai.codingchallenges"));
+        Set<Class<? extends Exporter>> exportClasses = reflections.getSubTypesOf(Exporter.class);
+        for ( Class<? extends Exporter> ex : exportClasses){
+            try {
+                exportFormat.addExportFormat(ex.newInstance());
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
 
         // Print Statements for User input
         System.out.println("Please Provide Movie details at each per line");
