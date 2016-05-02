@@ -15,7 +15,7 @@ Create your own ExportFormat class, implementing Exporter interface. Package it 
   }
   ```
 ### Sample Output
-   ```java
+   ```
    salaikumar@Manikandan:~/WebApps/MovieAggregator$ java -jar target/MovieAggregator-1.0-SNAPSHOT.jar 
    Please Provide Movie details at each per line
    Example: World War X, 02:13:30, English, Brad Bit, Action
