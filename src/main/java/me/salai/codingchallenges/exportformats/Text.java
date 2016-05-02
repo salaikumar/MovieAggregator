@@ -36,6 +36,7 @@ public class Text implements Exporter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(output.getAbsolutePath());
         return output.getAbsolutePath();
     }
 
