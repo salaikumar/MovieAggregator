@@ -25,8 +25,9 @@ public class ClientProgram {
         exportFormat.addExportFormat(new Pdf()); // => Export to Pdf
 
         // Print Statements for User input
-        System.out.println("Please Provide Movie details at each per line. Type exit at End");
+        System.out.println("Please Provide Movie details at each per line");
         System.out.println("Example: World War X, 02:13:30, English, Brad Bit, Action");
+        System.out.println("Type 'exit' in order to exit");
         while(scanner.hasNextLine()){
             String input = scanner.nextLine();
             if ( input.equalsIgnoreCase("exit"))
