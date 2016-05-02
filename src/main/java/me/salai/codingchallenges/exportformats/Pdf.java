@@ -42,6 +42,8 @@ public class Pdf implements Exporter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println("File Location:" + fileName  );
     }
 
     public String getExporterName() {
