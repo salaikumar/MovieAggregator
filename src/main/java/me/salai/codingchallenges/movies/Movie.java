@@ -16,7 +16,6 @@ public class Movie {
     public Movie(){
     }
 
-    // All Properties Constructor
     public Movie(String movieName, String duration, String language, String leadActor, String genre ){
         this.movieName  = movieName;
         this.duration   = duration;

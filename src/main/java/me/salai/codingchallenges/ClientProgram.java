@@ -23,7 +23,6 @@ public class ClientProgram {
         MovieAggregator movieAggregator = new MovieAggregator();
         ExportFormat exportFormat = new ExportFormat();
 
-        // Using Reflections library to get all classes implementing Exporter
         Reflections reflections = new Reflections(ClasspathHelper.forPackage("me.salai.codingchallenges"));
         Set<Class<? extends Exporter>> exportClasses = reflections.getSubTypesOf(Exporter.class);
         for ( Class<? extends Exporter> ex : exportClasses){
@@ -36,7 +35,6 @@ public class ClientProgram {
             }
         }
 
-        // Print Statements for User input
         System.out.println("Please Provide Movie details at each per line");
         System.out.println("Example: World War X, 02:13:30, English, Brad Bit, Action");
         System.out.println("Type 'exit' in order to exit");
@@ -54,7 +52,6 @@ public class ClientProgram {
         for (Exporter exp : exporters)
             System.out.println(exp.getExporterName());
 
-        // Make it as a proper class name
         String inputClass = scanner.nextLine().toLowerCase();
         String firstLetter = String.valueOf(inputClass.charAt(0)).toUpperCase();
         String expClass = firstLetter + inputClass.substring(1,inputClass.length());

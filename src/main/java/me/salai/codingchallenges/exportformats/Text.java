@@ -9,9 +9,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.concurrent.SynchronousQueue;
 
-/**
- * Exports the list of movies to a text file
- */
+
 public class Text implements Exporter {
 
     /*
