@@ -15,7 +15,7 @@ public class Text implements Exporter {
     /*
      * Export the movies to a Text File
      */
-    public void export(List<Movie> movies) {
+    public String export(List<Movie> movies) {
         String userDirPath = System.getProperty("user.home");
         String fileName = "movies_" + System.currentTimeMillis() +".txt";
         File output = new File(userDirPath + "/" + fileName);
@@ -36,8 +36,7 @@ public class Text implements Exporter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println("File Location:" + output.getAbsolutePath());
+        return output.getAbsolutePath();
     }
 
     public String getExporterName() {

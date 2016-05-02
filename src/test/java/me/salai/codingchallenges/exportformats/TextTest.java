@@ -3,8 +3,13 @@ package me.salai.codingchallenges.exportformats;
 import me.salai.codingchallenges.movies.Movie;
 import org.junit.Test;
 
+import javax.swing.plaf.basic.BasicButtonUI;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Text Exporter to Pdf
@@ -26,8 +31,8 @@ public class TextTest {
         movies.add(movie5);
 
         Exporter exporter = new Text();
-        exporter.export(movies);
+        String file = exporter.export(movies);
+        assertThat(file.isEmpty(),is(false));
 
-        // not any assert statements by now. -- FixME -> Test by using file read statements its content
     }
 }

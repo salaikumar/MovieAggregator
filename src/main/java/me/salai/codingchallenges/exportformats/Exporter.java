@@ -9,6 +9,6 @@ import java.util.List;
  * Declares the list of common functions required for a Export Format
  */
 public interface Exporter {
-    public void export(List<Movie> movies);
+    public String export(List<Movie> movies);
     public String getExporterName();
 }

@@ -17,7 +17,7 @@ import java.util.List;
 public class Pdf implements Exporter {
 
 
-    public void export(List<Movie> movies) {
+    public String export(List<Movie> movies) {
         String userDirPath = System.getProperty("user.home");
         String fileName = userDirPath + "/"+ "movies_" + System.currentTimeMillis() +".pdf";
         PDDocument  doc= new PDDocument();
@@ -44,6 +44,7 @@ public class Pdf implements Exporter {
         }
 
         System.out.println("File Location:" + fileName  );
+        return fileName;
     }
 
     public String getExporterName() {
