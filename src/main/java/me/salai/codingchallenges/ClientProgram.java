@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 /**
  * Client Program
- * -- FixMe --> should be moved as a separate Program.
  */
 public class ClientProgram {
 
