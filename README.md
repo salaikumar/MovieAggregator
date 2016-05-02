@@ -2,8 +2,9 @@
 Console app that accepts movie details and export it to various formats such as PDF, Textfile.
 ## How to use
 ### Execution
-
-
+```Java
+   mvn clean package
+   java -jar 
 ### Adding your own ExportFormat
 1. Create your own ExportFormat class, implementing Exporter interface. Package it under exportformats.
 
