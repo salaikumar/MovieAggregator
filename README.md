@@ -33,6 +33,15 @@ Create your own ExportFormat class, implementing Exporter interface. Package it 
    PDF
    File Location:/home/salaikumar/movies_1462164264521.pdf
    ```
+### How it works
+1. The Export Formats classes and interfaces are organized under *exportformats* package. 
+    Any new ExportFormat should implement *Exporter* interface. 
+2. ClientProgram is the MainClass. The list of Export formats supported are first identified and made available for use
+3. Once the user provides the data and types *exit* in a newline,the list of export options is displayed
+4. Using *Reflection*, the instance of the Exporter chosen by user is created and export() is called.
+5. Feel free to add your own ExportFormat class to *exportformats* package, clean and build the package and execute the jar.
+   Your Exportformat would be available to user for use.
+
 
   
 
