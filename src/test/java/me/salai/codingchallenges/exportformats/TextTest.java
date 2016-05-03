@@ -17,7 +17,7 @@ public class TextTest {
         Exporter exporter = new Text();
         String fileName = exporter.export(movies.toString(),PdfTest.getHomeDirPath());
         assertThat(fileName.isEmpty(),is(false));
-
+        assertThat(exporter.getExporterName(),is("Pdf"));
     }
 
 }

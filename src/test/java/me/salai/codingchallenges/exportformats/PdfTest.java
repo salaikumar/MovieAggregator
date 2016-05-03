@@ -20,6 +20,8 @@ public class PdfTest {
         Exporter exporter = new Pdf();
         String file = exporter.export(movies.toString(),getHomeDirPath());
         assertThat(file.isEmpty(),is(false));
+
+        assertThat(exporter.getExporterName(),is("Pdf"));
     }
 
     public static List<Movie> getTestMovieList(){

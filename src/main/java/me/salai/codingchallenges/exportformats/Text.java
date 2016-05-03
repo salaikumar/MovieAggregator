@@ -39,6 +39,6 @@ public class Text implements Exporter {
     }
 
     public String getExporterName() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 }

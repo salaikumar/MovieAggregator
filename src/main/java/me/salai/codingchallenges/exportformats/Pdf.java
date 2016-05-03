@@ -57,7 +57,7 @@ public class Pdf implements Exporter {
     }
 
     public String getExporterName() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 
 }
