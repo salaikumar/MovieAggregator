@@ -36,7 +36,7 @@ public class PdfTest {
         movies.add(movie4);
         movies.add(movie5);
 
-        Exporter exporter = new Text();
+        Exporter exporter = new Pdf();
         String file = exporter.export(movies);
         assertThat(file.isEmpty(),is(false));
     }
