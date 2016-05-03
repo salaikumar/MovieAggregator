@@ -1,16 +1,9 @@
 package me.salai.codingchallenges.exportformats;
 
 import me.salai.codingchallenges.movies.Movie;
-import org.apache.pdfbox.cos.COSDocument;
-import org.apache.pdfbox.io.RandomAccessFile;
-import org.apache.pdfbox.pdfparser.PDFParser;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
+import me.salai.codingchallenges.movies.MovieAggregator;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +16,18 @@ import static org.hamcrest.core.Is.is;
 public class PdfTest {
     @Test
     public void shouldTestPDFExporter(){
-        Movie movie1 = new Movie("World War X", "02:13:30", "English", "Brad Bit", "Action");
-        Movie movie2 = new Movie("World War A", "02:13:30", "English", "Brad Bit", "Action");
-        Movie movie3 = new Movie("World War B", "02:13:30", "English", "Brad Bit", "Action");
-        Movie movie4 = new Movie("World War C", "02:13:30", "English", "Brad Bit", "Action");
-        Movie movie5 = new Movie("World War Z", "02:13:30", "English", "Brad Bit", "Action");
-        Movie movie6 = new Movie("sample", "02:13:30", "English", "Brad Bit", "Action");
+        MovieAggregator movies = new MovieAggregator(getTestMovieList());
+        Exporter exporter = new Pdf();
+        String file = exporter.export(movies.toString(),getHomeDirPath());
+        assertThat(file.isEmpty(),is(false));
+    }
+
+    public static List<Movie> getTestMovieList(){
+        Movie movie1 = new Movie("Fight Club", "02:13:30", "English", "Brad pitt", "Action");
+        Movie movie2 = new Movie("World War Z", "02:13:30", "English", "Brad pitt", "Action");
+        Movie movie3 = new Movie("Troy", "02:13:30", "English", "Brad pitt", "Action");
+        Movie movie4 = new Movie("Fury", "02:13:30", "English", "Brad pitt", "Action");
+        Movie movie5 = new Movie("Moneyball", "02:13:30", "English", "Brad pitt", "Romance");
         List<Movie> movies= new ArrayList<Movie>();
         movies.add(movie1);
         movies.add(movie2);
@@ -36,9 +35,10 @@ public class PdfTest {
         movies.add(movie4);
         movies.add(movie5);
 
-        Exporter exporter = new Pdf();
-        String file = exporter.export(movies);
-        assertThat(file.isEmpty(),is(false));
+        return movies;
     }
 
+    public static String getHomeDirPath(){
+        return System.getProperty("user.home");
+    }
 }

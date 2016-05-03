@@ -7,6 +7,7 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -16,23 +17,33 @@ import java.util.List;
  */
 public class Pdf implements Exporter {
 
+    public String export(String content, String pathToDir) {
+        // Handle Corner Cases
+        if (content.isEmpty() || pathToDir.isEmpty() ){
+            throw new RuntimeException("Exporter requires Content and Directory Path");
+        }
 
-    public String export(List<Movie> movies) {
-        String userDirPath = System.getProperty("user.home");
-        String fileName = userDirPath + "/"+ "movies_" + System.currentTimeMillis() +".pdf";
-        PDDocument  doc= new PDDocument();
+        //Check if pathToDir is a valid path
+        File dir = new File(pathToDir);
+        if( (!dir.isDirectory()) || (!dir.canWrite())){
+            throw new RuntimeException("Directory Path does not exists or can't be written");
+        }
+
+        String fileName = pathToDir + File.separator + "movies_" + System.currentTimeMillis() + ".pdf" ;
+        String lines[] = content.split("\\r?\\n");
         try{
+            PDDocument  doc= new PDDocument();
             PDPage page = new PDPage();
             doc.addPage(page);
             PDFont font = PDType1Font.HELVETICA_BOLD;
             PDPageContentStream contents = new PDPageContentStream(doc, page);
             int x = 0;
             int y = 780;
-            for (Movie movie : movies) {
+            for (String line: lines) {
                 contents.beginText();
                 contents.setFont(font, 10);
                 contents.newLineAtOffset(x, y);
-                contents.showText(movie.toString());
+                contents.showText(line);
                 contents.endText();
                 y -= 15;
             }
@@ -40,14 +51,13 @@ public class Pdf implements Exporter {
             doc.save(fileName);
             doc.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            return null;
         }
-
-        System.out.println("File Location:" + fileName  );
         return fileName;
     }
 
     public String getExporterName() {
-        return "Pdf";
+        return this.getClass().getName();
     }
+
 }

@@ -12,35 +12,33 @@ import java.util.concurrent.SynchronousQueue;
 
 public class Text implements Exporter {
 
-    /*
-     * Export the movies to a Text File
-     */
-    public String export(List<Movie> movies) {
-        String userDirPath = System.getProperty("user.home");
-        String fileName = "movies_" + System.currentTimeMillis() +".txt";
-        File output = new File(userDirPath + "/" + fileName);
-        try {
-            output.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public String export(String content,String pathToDir) {
+
+        // Handle Corner Cases
+        if (content.isEmpty() || pathToDir.isEmpty() ){
+            throw new RuntimeException("Exporter requires Content and Directory Path");
         }
 
-        // Add contents to the file.
+        //Check if pathToDir is a valid path
+        File dir = new File(pathToDir);
+        if( (!dir.isDirectory()) || (!dir.canWrite())){
+            throw new RuntimeException("Directory Path does not exists or can't be written");
+        }
+
+        String fileName = "movies_" + System.currentTimeMillis() +".txt";
+        File output = new File ( pathToDir + File.separator + fileName ) ;
         try {
+            output.createNewFile();
             FileWriter fw = new FileWriter(output);
-            for ( Movie mov : movies){
-                fw.write(mov.toString());
-                fw.write("\n");
-            }
+            fw.write(content);
             fw.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            return null; // Now I don't see a long trace.
         }
-        System.out.println(output.getAbsolutePath());
         return output.getAbsolutePath();
     }
 
     public String getExporterName() {
-        return "Text";
+        return this.getClass().getName();
     }
 }
