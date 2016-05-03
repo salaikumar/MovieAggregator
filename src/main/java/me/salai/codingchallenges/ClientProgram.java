@@ -44,7 +44,7 @@ public class ClientProgram {
     public String exportFileToGivenFormat(String fileFormat){
         //  Export it to the user desired format
         Exporter chosenExporter = exportFormat.getExporter(fileFormat);
-        return chosenExporter.export(movieAggregator.getAllMovies().toString(), System.getProperty("user.home"));
+        return chosenExporter.export(movieAggregator.toString(), System.getProperty("user.home"));
     }
 
     public static void main(String[] args){

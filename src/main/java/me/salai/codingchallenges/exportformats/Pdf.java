@@ -30,7 +30,7 @@ public class Pdf implements Exporter {
         }
 
         String fileName = pathToDir + File.separator + "movies_" + System.currentTimeMillis() + ".pdf" ;
-        String lines[] = content.split("\\r?\\n");
+        String lines[] = content.split(System.getProperty("line.separator"));
         try{
             PDDocument  doc= new PDDocument();
             PDPage page = new PDPage();

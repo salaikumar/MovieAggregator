@@ -36,7 +36,8 @@ public class MovieAggregator {
     public String toString(){
         StringBuilder text = new StringBuilder();
         for (Movie movie : movies){
-            text.append(movie.toString() + newLineChar);
+            text.append(movie.toString());
+            text.append(newLineChar);
         }
         return  new String(text);
     }
